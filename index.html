@@ -7,6 +7,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+        
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -23,33 +24,16 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Space Mono', monospace;
         }
 
         body {
-            font-family: 'Space Mono', monospace;
             line-height: 1.6;
             background: linear-gradient(45deg, #f8e1e1, #e1e5f8, #fdf3e5, #ffe4e1);
             background-size: 400% 400%;
             animation: wave 15s ease infinite;
             color: #1a1a1a;
             min-height: 100vh;
-        }
-        
-        /* Wavy border for sections */
-        .wave-border {
-            position: relative;
-            padding: 2rem;
-        }
-        
-        .wave-border::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 15px;
-            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 24c120 0 120 48 240 48s120-48 240-48 120 48 240 48 120-48 240-48v96h-1200z' fill='%23ffb4a2'/%3E%3C/svg%3E");
-            background-size: 1200px 100%;
         }
 
         .container {
@@ -58,62 +42,59 @@
             padding: 0 2rem;
         }
 
-        /* Header Styling */
         header {
-            padding: 3rem 0;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
             backdrop-filter: blur(10px);
             border-bottom: 3px solid rgba(255, 180, 162, 0.3);
         }
 
         .site-title {
-            font-family: 'Space Mono', monospace;
             font-weight: 700;
-            font-size: 4rem;
+            font-size: 2rem;
             background: linear-gradient(45deg, #ffb4a2, #a2d2ff, #ffd6a2);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             animation: wave 8s ease infinite;
             background-size: 300% 300%;
-            font-size: 3.5rem;
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .site-subtitle {
             text-align: center;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #666;
-            font-style: italic;
+            font-style: normal;
         }
 
-        /* Hero Section */
+        /* Content Grid Layout */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 2rem;
+            margin-top: 6rem;
+        }
+
         .hero {
-            margin: 4rem auto;
-            position: relative;
             background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
             backdrop-filter: blur(10px);
             border-radius: 30px;
-            padding: 3rem;
+            padding: 2rem;
             border: 3px solid rgba(255, 180, 162, 0.3);
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 3rem;
-            align-items: center;
         }
 
         .hero-image {
             width: 100%;
-            height: 600px;
+            height: 400px;
             object-fit: cover;
             border-radius: 4px;
-        }
-
-        .hero-content {
-            padding: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .latest-tag {
@@ -128,35 +109,31 @@
         }
 
         .hero-title {
-            font-family: 'Space Mono', monospace;
             font-weight: 700;
-            font-size: 3rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            line-height: 1.3;
+            margin-bottom: 1rem;
         }
 
         .hero-description {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #444;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
-        /* Recent Episodes Grid */
         .episodes-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin: 4rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
         .episode-card {
-            transition: all 0.3s ease;
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 1.5rem;
             border: 2px solid rgba(255, 180, 162, 0.3);
-            animation: float 6s ease-in-out infinite;
+            transition: transform 0.3s ease;
         }
 
         .episode-card:hover {
@@ -165,30 +142,48 @@
 
         .episode-image {
             width: 100%;
-            height: 300px;
+            height: 200px;
             object-fit: cover;
-            margin-bottom: 1rem;
             border-radius: 4px;
+            margin-bottom: 1rem;
         }
 
         .episode-title {
-            font-family: 'DM Serif Display', serif;
-            font-size: 1.5rem;
+            font-weight: 700;
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
 
         .episode-meta {
             font-size: 0.9rem;
             color: #666;
-            margin-bottom: 1rem;
         }
 
-        /* About Section */
+        .see-more-container {
+            text-align: right;
+            margin-top: 2rem;
+        }
+
+        .see-more-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ffb4a2, #ffd6a2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(255, 180, 162, 0.3);
+        }
+
+        .see-more-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 180, 162, 0.4);
+        }
+
         .about-section {
             background: linear-gradient(135deg, #ffd6e0, #c8e7ff, #ffe5c8);
-            position: relative;
-            overflow: hidden;
-            padding: 8rem 0;
+            padding: 6rem 0;
             margin: 4rem 0;
             text-align: center;
         }
@@ -196,29 +191,20 @@
         .about-content {
             max-width: 800px;
             margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .about-title {
-            font-family: 'DM Serif Display', serif;
-            font-size: 2.5rem;
+            font-weight: 700;
+            font-size: 2rem;
             margin-bottom: 2rem;
         }
 
         .about-description {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: #444;
             margin-bottom: 3rem;
             line-height: 1.8;
-        }
-
-        .vibes-tag {
-            display: inline-block;
-            background: #ffb4a2;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            margin: 0.5rem;
         }
 
         .social-links {
@@ -227,21 +213,20 @@
 
         .social-links a {
             color: #1a1a1a;
-            font-size: 1.5rem;
-            margin: 0 1rem;
+            font-size: 1.8rem;
+            margin: 0 1.5rem;
             transition: color 0.3s ease;
         }
 
         .social-links a:hover {
-            color: #ff4d4d;
+            color: #ffb4a2;
         }
 
-        /* Listen Now Button */
         .listen-button {
             display: inline-block;
             background: #1a1a1a;
             color: white;
-            padding: 1rem 2rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 4px;
             text-decoration: none;
             font-weight: 500;
@@ -253,31 +238,19 @@
         }
 
         @media (max-width: 1024px) {
-            .hero {
+            .content-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .episodes-grid {
-                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
             }
         }
 
         @media (max-width: 768px) {
-            .episodes-grid {
-                grid-template-columns: 1fr;
-            }
-
             .hero-image {
-                height: 400px;
-            }
-
-            .site-title {
-                font-size: 2.5rem;
+                height: 300px;
             }
 
             .hero-title {
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -289,44 +262,47 @@
     </header>
 
     <main class="container">
-        <!-- Hero Section - Latest Episode -->
-        <section class="hero">
-            <img src="/api/placeholder/800/600" alt="Latest episode featuring founder" class="hero-image">
-            <div class="hero-content">
-                <span class="latest-tag">LATEST EPISODE</span>
-                <h2 class="hero-title">Breaking the Mold: How This 23-Year-Old Built Tokyo's Most Popular Dating App</h2>
-                <p class="hero-description">
-                    In this raw and honest conversation, we dive deep into the challenges, 
-                    victories, and real talk about what it takes to disrupt Japan's 
-                    traditional dating scene. No filters, just pure entrepreneurial energy.
-                </p>
-                <a href="#" class="listen-button">Listen Now</a>
-            </div>
-        </section>
+        <div class="content-grid">
+            <!-- Hero Section - Latest Episode -->
+            <section class="hero">
+                <img src="/api/placeholder/800/600" alt="Latest episode featuring founder" class="hero-image">
+                <div class="hero-content">
+                    <span class="latest-tag">LATEST EPISODE</span>
+                    <h2 class="hero-title">Breaking the Mold: How This 23-Year-Old Built Tokyo's Most Popular Dating App</h2>
+                    <p class="hero-description">
+                        In this raw and honest conversation, we dive deep into the challenges, 
+                        victories, and real talk about what it takes to disrupt Japan's 
+                        traditional dating scene. No filters, just pure entrepreneurial energy.
+                    </p>
+                    <a href="#" class="listen-button">Listen Now</a>
+                </div>
+            </section>
 
-        <!-- Recent Episodes Grid -->
-        <section class="episodes-grid">
-            <article class="episode-card">
-                <img src="/api/placeholder/400/300" alt="Episode with tech founder" class="episode-image">
-                <h3 class="episode-title">From Salaryman to Startup: A Story of Breaking Free</h3>
-                <div class="episode-meta">Episode 12 • 55 mins</div>
-            </article>
+            <!-- Recent Episodes Grid -->
+            <section class="episodes-grid">
+                <article class="episode-card">
+                    <img src="/api/placeholder/400/300" alt="Episode with tech founder" class="episode-image">
+                    <h3 class="episode-title">From Salaryman to Startup: A Story of Breaking Free</h3>
+                    <div class="episode-meta">Episode 12 • 55 mins</div>
+                </article>
 
-            <article class="episode-card">
-                <img src="/api/placeholder/400/300" alt="Episode with AI researcher" class="episode-image">
-                <h3 class="episode-title">Building Japan's First AI Education Platform</h3>
-                <div class="episode-meta">Episode 11 • 48 mins</div>
-            </article>
+                <article class="episode-card">
+                    <img src="/api/placeholder/400/300" alt="Episode with AI researcher" class="episode-image">
+                    <h3 class="episode-title">Building Japan's First AI Education Platform</h3>
+                    <div class="episode-meta">Episode 11 • 48 mins</div>
+                </article>
 
-            <article class="episode-card">
-                <img src="/api/placeholder/400/300" alt="Episode with food tech founder" class="episode-image">
-                <h3 class="episode-title">Revolutionizing Tokyo's Food Delivery Scene</h3>
-                <div class="episode-meta">Episode 10 • 42 mins</div>
-            </article>
-            <div class="see-more-container">
-    <a href="archive.html" class="see-more-button">See More Episodes →</a>
-</div>
-        </section>
+                <article class="episode-card">
+                    <img src="/api/placeholder/400/300" alt="Episode with food tech founder" class="episode-image">
+                    <h3 class="episode-title">Revolutionizing Tokyo's Food Delivery Scene</h3>
+                    <div class="episode-meta">Episode 10 • 42 mins</div>
+                </article>
+
+                <div class="see-more-container">
+                    <a href="archive.html" class="see-more-button">See More Episodes →</a>
+                </div>
+            </section>
+        </div>
 
         <!-- About Section -->
         <section class="about-section">
@@ -337,16 +313,10 @@
                     No corporate jargon, no fake success stories – just authentic conversations 
                     with people who are actually building cool shit in Tokyo.
                 </p>
-                <div>
-                    <span class="vibes-tag">#RealTalk</span>
-                    <span class="vibes-tag">#GoodVibesOnly</span>
-                    <span class="vibes-tag">#TokyoStartups</span>
-                </div>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-spotify"></i></a>
-                    <a href="#"><i class="fab fa-apple-podcast"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </section>
