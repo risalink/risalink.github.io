@@ -1,4 +1,4 @@
-Copy<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,6 +34,23 @@ Copy<!DOCTYPE html>
             color: #1a1a1a;
             min-height: 100vh;
         }
+        
+        /* Wavy border for sections */
+        .wave-border {
+            position: relative;
+            padding: 2rem;
+        }
+        
+        .wave-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 24c120 0 120 48 240 48s120-48 240-48 120 48 240 48 120-48 240-48v96h-1200z' fill='%23ffb4a2'/%3E%3C/svg%3E");
+            background-size: 1200px 100%;
+        }
 
         .container {
             max-width: 1400px;
@@ -61,6 +78,7 @@ Copy<!DOCTYPE html>
             color: transparent;
             animation: wave 8s ease infinite;
             background-size: 300% 300%;
+            font-size: 3.5rem;
             text-align: center;
             margin-bottom: 1rem;
         }
@@ -110,6 +128,8 @@ Copy<!DOCTYPE html>
         }
 
         .hero-title {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
             font-size: 3rem;
             line-height: 1.2;
             margin-bottom: 1.5rem;
@@ -152,6 +172,7 @@ Copy<!DOCTYPE html>
         }
 
         .episode-title {
+            font-family: 'DM Serif Display', serif;
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
         }
@@ -165,11 +186,11 @@ Copy<!DOCTYPE html>
         /* About Section */
         .about-section {
             background: linear-gradient(135deg, #ffd6e0, #c8e7ff, #ffe5c8);
+            position: relative;
+            overflow: hidden;
             padding: 8rem 0;
             margin: 4rem 0;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
 
         .about-content {
@@ -178,6 +199,7 @@ Copy<!DOCTYPE html>
         }
 
         .about-title {
+            font-family: 'DM Serif Display', serif;
             font-size: 2.5rem;
             margin-bottom: 2rem;
         }
@@ -211,7 +233,7 @@ Copy<!DOCTYPE html>
         }
 
         .social-links a:hover {
-            color: #ffb4a2;
+            color: #ff4d4d;
         }
 
         /* Listen Now Button */
