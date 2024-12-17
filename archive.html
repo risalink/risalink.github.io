@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive - Cool People Podcast</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Copy all the styles from the main page */
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+        
+        /* Add archive-specific styles */
+        .archive-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .archive-title {
+            font-size: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            background: linear-gradient(45deg, #ffb4a2, #a2d2ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .page-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .page-nav button {
+            background: rgba(255, 180, 162, 0.2);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .page-nav button:hover {
+            background: rgba(255, 180, 162, 0.4);
+        }
+
+        .page-nav button.active {
+            background: #ffb4a2;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="site-title">Cool People Podcast</h1>
+        <p class="site-subtitle">Archive</p>
+    </header>
+
+    <main class="container">
+        <h2 class="archive-title">Past Episodes</h2>
+        
+        <section class="archive-grid">
+            <!-- Past episodes (Example entries) -->
+            <article class="episode-card">
+                <img src="/api/placeholder/400/300" alt="Episode with tech founder" class="episode-image">
+                <h3 class="episode-title">The Future of Japanese E-commerce</h3>
+                <div class="episode-meta">Episode 9 • 52 mins</div>
+            </article>
+            <!-- Add more episode cards here -->
+        </section>
+
+        <div class="page-nav">
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>→</button>
+        </div>
+    </main>
+</body>
+</html>
