@@ -1,10 +1,330 @@
-<!DOCTYPE html>
-<html>
+Copy<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>My First Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool People Podcast - Real Talk from Tokyo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes wave {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            line-height: 1.6;
+            background: linear-gradient(45deg, #f8e1e1, #e1e5f8, #fdf3e5, #ffe4e1);
+            background-size: 400% 400%;
+            animation: wave 15s ease infinite;
+            color: #1a1a1a;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 3rem 0;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid rgba(255, 180, 162, 0.3);
+        }
+
+        .site-title {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 4rem;
+            background: linear-gradient(45deg, #ffb4a2, #a2d2ff, #ffd6a2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: wave 8s ease infinite;
+            background-size: 300% 300%;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .site-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin: 4rem auto;
+            position: relative;
+            background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 3rem;
+            border: 3px solid rgba(255, 180, 162, 0.3);
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .hero-content {
+            padding: 2rem;
+        }
+
+        .latest-tag {
+            display: inline-block;
+            background: #ffb4a2;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #444;
+            margin-bottom: 2rem;
+        }
+
+        /* Recent Episodes Grid */
+        .episodes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .episode-card {
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 2px solid rgba(255, 180, 162, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .episode-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .episode-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+
+        .episode-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .episode-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        /* About Section */
+        .about-section {
+            background: linear-gradient(135deg, #ffd6e0, #c8e7ff, #ffe5c8);
+            padding: 8rem 0;
+            margin: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-description {
+            font-size: 1.4rem;
+            color: #444;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .vibes-tag {
+            display: inline-block;
+            background: #ffb4a2;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            margin: 0.5rem;
+        }
+
+        .social-links {
+            margin-top: 3rem;
+        }
+
+        .social-links a {
+            color: #1a1a1a;
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ffb4a2;
+        }
+
+        /* Listen Now Button */
+        .listen-button {
+            display: inline-block;
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .listen-button:hover {
+            background: #333;
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .episodes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .episodes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                height: 400px;
+            }
+
+            .site-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Website!</h1>
-    <p>This is my first website using GitHub Pages.</p>
+    <header>
+        <h1 class="site-title">Cool People Podcast</h1>
+        <p class="site-subtitle">Real conversations with Tokyo's startup innovators</p>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section - Latest Episode -->
+        <section class="hero">
+            <img src="/api/placeholder/800/600" alt="Latest episode featuring founder" class="hero-image">
+            <div class="hero-content">
+                <span class="latest-tag">LATEST EPISODE</span>
+                <h2 class="hero-title">Breaking the Mold: How This 23-Year-Old Built Tokyo's Most Popular Dating App</h2>
+                <p class="hero-description">
+                    In this raw and honest conversation, we dive deep into the challenges, 
+                    victories, and real talk about what it takes to disrupt Japan's 
+                    traditional dating scene. No filters, just pure entrepreneurial energy.
+                </p>
+                <a href="#" class="listen-button">Listen Now</a>
+            </div>
+        </section>
+
+        <!-- Recent Episodes Grid -->
+        <section class="episodes-grid">
+            <article class="episode-card">
+                <img src="/api/placeholder/400/300" alt="Episode with tech founder" class="episode-image">
+                <h3 class="episode-title">From Salaryman to Startup: A Story of Breaking Free</h3>
+                <div class="episode-meta">Episode 12 • 55 mins</div>
+            </article>
+
+            <article class="episode-card">
+                <img src="/api/placeholder/400/300" alt="Episode with AI researcher" class="episode-image">
+                <h3 class="episode-title">Building Japan's First AI Education Platform</h3>
+                <div class="episode-meta">Episode 11 • 48 mins</div>
+            </article>
+
+            <article class="episode-card">
+                <img src="/api/placeholder/400/300" alt="Episode with food tech founder" class="episode-image">
+                <h3 class="episode-title">Revolutionizing Tokyo's Food Delivery Scene</h3>
+                <div class="episode-meta">Episode 10 • 42 mins</div>
+            </article>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="about-content">
+                <h2 class="about-title">Where Good People Meet Good Vibes</h2>
+                <p class="about-description">
+                    This isn't your typical startup podcast. We keep it real, raw, and honest. 
+                    No corporate jargon, no fake success stories – just authentic conversations 
+                    with people who are actually building cool shit in Tokyo.
+                </p>
+                <div>
+                    <span class="vibes-tag">#RealTalk</span>
+                    <span class="vibes-tag">#GoodVibesOnly</span>
+                    <span class="vibes-tag">#TokyoStartups</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-spotify"></i></a>
+                    <a href="#"><i class="fab fa-apple-podcast"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
