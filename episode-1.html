@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Salaryman to Startup - Cool People Podcast</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Space Mono', monospace;
+        }
+
+        body {
+            line-height: 1.6;
+            background: linear-gradient(45deg, #f8e1e1, #e1e5f8, #fdf3e5, #ffe4e1);
+            background-size: 400% 400%;
+            animation: wave 15s ease infinite;
+            color: #1a1a1a;
+            min-height: 100vh;
+        }
+
+        @keyframes wave {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Header */
+        header {
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid rgba(255, 180, 162, 0.3);
+        }
+
+        .site-title {
+            text-align: center;
+            font-size: 2rem;
+            background: linear-gradient(45deg, #ffb4a2, #a2d2ff, #ffd6a2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Content Layout */
+        .episode-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 6rem auto 0;
+            padding: 0 2rem;
+        }
+
+        /* Video Section */
+        .video-section {
+            position: sticky;
+            top: 6rem;
+            height: calc(100vh - 8rem);
+        }
+
+        .video-wrapper {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            position: relative;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Article Section */
+        .article-section {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .article-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-meta {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: linear-gradient(135deg, #ffd6e0, #c8e7ff, #ffe5c8);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .newsletter-input {
+            padding: 1rem 1.5rem;
+            border: 2px solid rgba(255, 180, 162, 0.3);
+            border-radius: 25px;
+            width: 300px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .newsletter-button {
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #ffb4a2, #ffd6a2);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .newsletter-button:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 1024px) {
+            .episode-container {
+                grid-template-columns: 1fr;
+            }
+
+            .video-section {
+                position: relative;
+                height: auto;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="site-title">Cool People Podcast</h1>
+    </header>
+
+    <div class="episode-container">
+        <!-- Video Section (Left) -->
+        <section class="video-section">
+            <div class="video-wrapper">
+                <!-- Replace YOUTUBE_VIDEO_ID with your actual YouTube video ID -->
+                <iframe src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Article Section (Right) -->
+        <section class="article-section">
+            <h1 class="article-title">From Salaryman to Startup: A Story of Breaking Free</h1>
+            <div class="article-meta">Episode 12 • December 15, 2024</div>
+            <div class="article-content">
+                <p>In this episode, we sit down with Tanaka-san, a former salaryman who took the leap into entrepreneurship. After spending 10 years in a traditional Japanese corporation, he decided to break free and start his own tech company.</p>
+                
+                <p>Key topics discussed:</p>
+                <ul>
+                    <li>The challenges of leaving a stable corporate job</li>
+                    <li>Building a startup in Japan's traditional business environment</li>
+                    <li>Raising funding as a first-time founder</li>
+                    <li>The importance of work-life balance in startup culture</li>
+                </ul>
+
+                <p>Tanaka-san shares his insights on how the startup ecosystem in Tokyo is evolving and what it means for the future of work in Japan. He discusses the cultural shifts happening in the younger generation and how they're reshaping traditional business norms.</p>
+
+                <!-- Add more content as needed -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <h2 class="newsletter-title">Get the latest episodes in your inbox</h2>
+            <p>Join our community of innovators and stay updated with Tokyo's startup scene.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                <button type="submit" class="newsletter-button">Subscribe</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
