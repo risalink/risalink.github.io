@@ -6,7 +6,7 @@
     <title>Archive - Cool People Podcast</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-       @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap');
         
         * {
             margin: 0;
@@ -37,7 +37,7 @@
         }
 
         header {
-            padding: 1.5rem 0;
+            padding: 0.8rem 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -65,7 +65,7 @@
         }
 
         main {
-            padding-top: 6rem;
+            padding-top: 4.5rem;
         }
 
         .archive-title {
@@ -84,3 +84,131 @@
             gap: 2rem;
             margin: 4rem 0;
         }
+
+        /* Episode Card Styles */
+        .episode-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 2rem;
+            border: 2px solid rgba(255, 180, 162, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            box-shadow: 0 4px 8px rgba(255, 180, 162, 0.1);
+        }
+
+        .episode-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 16px rgba(255, 180, 162, 0.2);
+        }
+
+        .episode-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .episode-card:hover .episode-image {
+            transform: scale(1.05);
+        }
+
+        .episode-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .episode-meta {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @media (max-width: 1024px) {
+            .archive-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .archive-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="site-title">Cool People Podcast</h1>
+        <p class="site-subtitle">Archive</p>
+    </header>
+
+    <main class="container">
+        <h2 class="archive-title">Past Episodes</h2>
+        
+        <section class="archive-grid">
+            <!-- Row 1 -->
+            <a href="episode-1.html" class="episode-card">
+                <img src="/api/placeholder/400/300" alt="Episode 9" class="episode-image">
+                <h3 class="episode-title">Breaking the Mold: Dating App Revolution</h3>
+                <div class="episode-meta">Episode 13 • 50 mins</div>
+            </a>
+
+            <a href="episode-2.html" class="episode-card">
+                <img src="/api/placeholder/400/300" alt="Episode 8" class="episode-image">
+                <h3 class="episode-title">From Salaryman to Startup: A Story of Breaking Free</h3>
+                <div class="episode-meta">Episode 12 • 55 mins</div>
+            </a>
+
+            <a href="episode-3.html" class="episode-card">
+                <img src="/api/placeholder/400/300" alt="Episode 7" class="episode-image">
+                <h3 class="episode-title">Building Japan's First AI Education Platform</h3>
+                <div class="episode-meta">Episode 11 • 48 mins</div>
+            </a>
+
+            <!-- Row 2 -->
+            <a href="episode-4.html" class="episode-card">
+                <img src="/api/placeholder/400/300" alt="Episode 6" class="episode-image">
+                <h3 class="episode-title">Revolutionizing Tokyo's Food Delivery Scene</h3>
+                <div class="episode-meta">Episode 10 • 42 mins</div>
+            </a>
+
+            <a href="episode-5.html" class="episode-card">
+                <img src="/api/placeholder/400/300" alt="Episode 5" class="episode-image">
+                <h3 class="episode-title">The Future of Japanese E-commerce</h3>
+                <div class="episode-meta">Episode 9 • 52 mins</div>
+            </a>
+
+            <a href="episode-6.html" class="episode-card">
+                <img src="/api/placeholder/400/300" alt="Episode 4" class="episode-image">
+                <h3 class="episode-title">Building a Virtual Reality Startup in Tokyo</h3>
+                <div class="episode-meta">Episode 8 • 45 mins</div>
+            </a>
+
+            <!-- Row 3 -->
+            <a href="episode-7.html" class="episode-card">
+                <img src="/api/placeholder/400/300" alt="Episode 3" class="episode-image">
+                <h3 class="episode-title">From Tokyo to Silicon Valley and Back</h3>
+                <div class="episode-meta">Episode 7 • 50 mins</div>
+            </a>
+
+            <a href="episode-8.html" class="episode-card">
+                <img src="/api/placeholder/400/300" alt="Episode 2" class="episode-image">
+                <h3 class="episode-title">Bridging Japan's Tech Gap</h3>
+                <div class="episode-meta">Episode 6 • 47 mins</div>
+            </a>
+
+            <a href="episode-9.html" class="episode-card">
+                <img src="/api/placeholder/400/300" alt="Episode 1" class="episode-image">
+                <h3 class="episode-title">The Birth of Tokyo's Tech Revolution</h3>
+                <div class="episode-meta">Episode 5 • 51 mins</div>
+            </a>
+        </section>
+    </main>
+</body>
+</html>
