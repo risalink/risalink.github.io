@@ -25,12 +25,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -45,7 +39,6 @@
             animation: wave 15s ease infinite;
             color: #1a1a1a;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
         .container {
@@ -54,7 +47,7 @@
             padding: 0 2rem;
         }
 
-        /* Enhanced Header */
+        /* Header */
         header {
             padding: 1.5rem 0;
             position: fixed;
@@ -65,11 +58,6 @@
             backdrop-filter: blur(10px);
             border-bottom: 3px solid rgba(255, 180, 162, 0.3);
             transition: all 0.3s ease;
-        }
-
-        header.scrolled {
-            padding: 1rem 0;
-            background: rgba(255,255,255,0.98);
         }
 
         .site-title {
@@ -83,17 +71,15 @@
             background-size: 300% 300%;
             text-align: center;
             margin-bottom: 0.5rem;
-            transition: all 0.3s ease;
         }
 
         .site-subtitle {
             text-align: center;
             font-size: 1rem;
             color: #666;
-            transition: all 0.3s ease;
         }
 
-        /* Content Grid Layout */
+        /* Content Grid */
         .content-grid {
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
@@ -102,7 +88,13 @@
             animation: fadeIn 1s ease-out;
         }
 
-        /* Enhanced Hero Section */
+        /* Hero Section */
+        .hero-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
         .hero {
             background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
             backdrop-filter: blur(10px);
@@ -139,7 +131,6 @@
             margin-bottom: 1rem;
             font-size: 0.9rem;
             letter-spacing: 1px;
-            animation: pulse 2s infinite;
         }
 
         .hero-title {
@@ -147,7 +138,6 @@
             font-size: 1.8rem;
             line-height: 1.3;
             margin-bottom: 1rem;
-            transition: color 0.3s ease;
         }
 
         .hero-description {
@@ -156,24 +146,25 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Enhanced Episode Cards */
+        /* Episode Cards */
         .episodes-grid {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .episode-card {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 1.5rem;
+            border-radius: 25px;
+            padding: 2rem;
             border: 2px solid rgba(255, 180, 162, 0.3);
             transition: all 0.3s ease;
             cursor: pointer;
             text-decoration: none;
             color: inherit;
             display: block;
+            box-shadow: 0 4px 8px rgba(255, 180, 162, 0.1);
         }
 
         .episode-card:hover {
@@ -185,8 +176,8 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
-            border-radius: 4px;
-            margin-bottom: 1rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
             transition: transform 0.3s ease;
         }
 
@@ -198,7 +189,6 @@
             font-weight: 700;
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
-            transition: color 0.3s ease;
         }
 
         .episode-meta {
@@ -206,41 +196,7 @@
             color: #666;
         }
 
-        /* Social Share Buttons */
-        .share-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .share-button {
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .share-button.twitter {
-            background: #1DA1F2;
-            color: white;
-        }
-
-        .share-button.linkedin {
-            background: #0077B5;
-            color: white;
-        }
-
-        .share-button:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.1);
-        }
-
-        /* Enhanced See More Button */
+        /* See More Button */
         .see-more-container {
             text-align: right;
             margin-top: 2rem;
@@ -250,7 +206,7 @@
             display: inline-block;
             background: linear-gradient(45deg, #ffb4a2, #ffd6a2);
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 1rem 2rem;
             border-radius: 25px;
             text-decoration: none;
             font-weight: 500;
@@ -263,73 +219,133 @@
             box-shadow: 0 4px 12px rgba(255, 180, 162, 0.4);
         }
 
-        /* Enhanced Newsletter Section */
+        /* About Section */
+        .about-section {
+            background: linear-gradient(135deg, #ffd6e0, #c8e7ff, #ffe5c8);
+            padding: 8rem 0;
+            margin: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(255, 180, 162, 0.2);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .about-title {
+            font-size: 3rem;
+            margin-bottom: 2.5rem;
+            background: linear-gradient(45deg, #ffb4a2, #ffd6a2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .about-description {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin-bottom: 4rem;
+            color: #333;
+        }
+
+        /* Social Links */
+        .social-links {
+            margin-top: 4rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 2rem;
+            margin: 0 1.5rem;
+            transition: all 0.3s ease;
+            background: linear-gradient(45deg, #ffb4a2, #ffd6a2);
+            padding: 1rem;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem;
+            height: 4rem;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 180, 162, 0.4);
+        }
+
+        /* Newsletter Section */
         .newsletter-section {
             background: linear-gradient(135deg, #ffd6e0, #c8e7ff, #ffe5c8);
-            padding: 4rem 2rem;
+            padding: 6rem 2rem;
             margin-top: 4rem;
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
-
-        .newsletter-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #ffb4a2, #ffd6a2);
+            border-radius: 30px;
         }
 
         .newsletter-container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
-            animation: fadeIn 1s ease-out;
         }
 
         .newsletter-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 1.5rem;
+            color: #333;
         }
 
         .newsletter-form {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
-            margin-top: 2rem;
+            margin-top: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .newsletter-input {
-            padding: 1rem 1.5rem;
-            border: 2px solid rgba(255, 180, 162, 0.3);
-            border-radius: 25px;
-            width: 300px;
-            font-size: 1rem;
-            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem 2rem;
+            border: 3px solid rgba(255, 180, 162, 0.3);
+            border-radius: 30px;
+            width: 400px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.95);
+            color: #000;
+            font-family: 'Space Mono', monospace;
             transition: all 0.3s ease;
         }
 
         .newsletter-input:focus {
             outline: none;
             border-color: #ffb4a2;
-            box-shadow: 0 0 0 3px rgba(255, 180, 162, 0.3);
+            box-shadow: 0 0 0 4px rgba(255, 180, 162, 0.3);
+            transform: translateY(-2px);
         }
 
         .newsletter-button {
-            padding: 1rem 2rem;
+            padding: 1.5rem 3rem;
             background: linear-gradient(45deg, #ffb4a2, #ffd6a2);
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .newsletter-button:hover {
             transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 4px 12px rgba(255, 180, 162, 0.4);
+            box-shadow: 0 4px 15px rgba(255, 180, 162, 0.4);
         }
 
         @media (max-width: 1024px) {
@@ -341,11 +357,17 @@
             .newsletter-form {
                 flex-direction: column;
                 align-items: center;
+                gap: 1rem;
             }
 
             .newsletter-input {
                 width: 100%;
-                max-width: 300px;
+                max-width: 400px;
+            }
+
+            .newsletter-button {
+                width: 100%;
+                max-width: 400px;
             }
         }
 
@@ -367,7 +389,7 @@
             }
         }
     </style>
-    </head>
+</head>
 <body>
     <header>
         <h1 class="site-title">Cool People Podcast</h1>
@@ -377,45 +399,39 @@
     <main class="container">
         <div class="content-grid">
             <!-- Hero Section - Latest Episode -->
-            <section class="hero">
-                <img src="/api/placeholder/800/600" alt="Latest episode featuring founder" class="hero-image">
-                <div class="hero-content">
-                    <span class="latest-tag">LATEST EPISODE</span>
-                    <h2 class="hero-title">Breaking the Mold: How This 23-Year-Old Built Tokyo's Most Popular Dating App</h2>
-                    <p class="hero-description">
-                        In this raw and honest conversation, we dive deep into the challenges, 
-                        victories, and real talk about what it takes to disrupt Japan's 
-                        traditional dating scene. No filters, just pure entrepreneurial energy.
-                    </p>
-                    <div class="share-buttons">
-                        <button class="share-button twitter">
-                            <i class="fab fa-twitter"></i> Share
-                        </button>
-                        <button class="share-button linkedin">
-                            <i class="fab fa-linkedin"></i> Share
-                        </button>
+            <a href="episode-1.html" class="hero-link">
+                <section class="hero">
+                    <img src="/api/placeholder/800/600" alt="Latest episode featuring founder" class="hero-image">
+                    <div class="hero-content">
+                        <span class="latest-tag">LATEST EPISODE</span>
+                        <h2 class="hero-title">Breaking the Mold: How This 23-Year-Old Built Tokyo's Most Popular Dating App</h2>
+                        <p class="hero-description">
+                            In this raw and honest conversation, we dive deep into the challenges, 
+                            victories, and real talk about what it takes to disrupt Japan's 
+                            traditional dating scene. No filters, just pure entrepreneurial energy.
+                        </p>
                     </div>
-                </div>
-            </section>
+                </section>
+            </a>
 
             <!-- Recent Episodes Grid -->
             <section class="episodes-grid">
-                <a href="episode-1.html" class="episode-card">
+                <a href="episode-2.html" class="episode-card">
                     <img src="/api/placeholder/400/300" alt="Episode with tech founder" class="episode-image">
                     <h3 class="episode-title">From Salaryman to Startup: A Story of Breaking Free</h3>
                     <div class="episode-meta">Episode 12 • 55 mins</div>
                 </a>
 
-                <a href="episode-2.html" class="episode-card">
+                <a href="episode-3.html" class="episode-card">
                     <img src="/api/placeholder/400/300" alt="Episode with AI researcher" class="episode-image">
                     <h3 class="episode-title">Building Japan's First AI Education Platform</h3>
                     <div class="episode-meta">Episode 11 • 48 mins</div>
                 </a>
 
-                <a href="episode-3.html" class="episode-card">
+                <a href="episode-4.html" class="episode-card">
                     <img src="/api/placeholder/400/300" alt="Episode with food tech founder" class="episode-image">
                     <h3 class="episode-title">Revolutionizing Tokyo's Food Delivery Scene</h3>
-                    <div class="episode-meta">Episode 10 • 42 mins</div>
+                    <div class="<div class="episode-meta">Episode 10 • 42 mins</div>
                 </a>
 
                 <div class="see-more-container">
